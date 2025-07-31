@@ -37,7 +37,6 @@
 
 body {
     margin: 0;
-    font-family: 'Benzin-Regular', sans-serif;
     background-color: #ffffff;
     color: #000000;
     -webkit-font-smoothing: antialiased;
@@ -45,6 +44,8 @@ body {
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -54,9 +55,11 @@ body {
     overflow: hidden;
     position: relative;
 }
-.header-cta:hover{
+
+.header-cta:hover {
     background-color: white;
 }
+
 .header-cta {
     font-family: "Benzin-Medium", sans-serif;
     font-weight: 400;
@@ -153,9 +156,6 @@ body {
 
 /* CSS from section:header */
 .site-header {
-    background-image: url('/page/21deb2d0-cebf-44f7-9812-fc2f9168f64c/images/43_3.svg');
-    background-size: cover;
-    background-position: center;
     height: 90px;
     display: flex;
     align-items: center;
@@ -393,25 +393,24 @@ body {
 
 .stage-details h4 {
     font-family: 'Benzin-Bold', sans-serif;
+    font-weight: 400;
     font-size: 24px;
-    letter-spacing: 3.6px;
-    margin: 0 0 10px 0;
+    letter-spacing: 0.15em;
+    color: #fff;
 }
 
 .stage-details p {
     font-family: 'Benzin-Medium', sans-serif;
+    font-weight: 400;
     font-size: 24px;
-    letter-spacing: 3.6px;
-    line-height: 1.4;
-    margin: 0;
-    opacity: 0.8;
-    white-space: pre-line;
+    letter-spacing: 0.15em;
+    color: #fff;
 }
 
 .btn-next-wrapper {
     position: absolute;
-    top: 55%;
-    right: 0;
+    top: 78%;
+    right: -140px;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -513,7 +512,8 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* уменьшено с 350px для лучшей адаптивности */
     gap: 40px;
     margin-bottom: 60px;
 }
@@ -523,6 +523,9 @@ body {
     border-radius: 30px;
     aspect-ratio: 1 / 1;
     transition: transform 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -533,6 +536,15 @@ body {
     grid-column: span 2;
     aspect-ratio: 2 / 1;
 }
+
+@media (max-width: 768px) {
+    .project-card-large {
+        grid-column: span 1;
+        aspect-ratio: 1 / 1;
+        /* делаем одинаковую высоту для мобильных */
+    }
+}
+
 
 .projects-cta {
     text-align: center;
